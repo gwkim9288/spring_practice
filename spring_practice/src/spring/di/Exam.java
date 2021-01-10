@@ -1,5 +1,5 @@
 package spring.di;
 
-public class Exam {
+public interface Exam {
 
 }

@@ -1,13 +1,7 @@
 package spring.di;
 
-public class Console {
-	Exam exam;
+public interface Console {
 	
-	public void print() {
-		
-	}
-	
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
+	public void print();
+
 }
