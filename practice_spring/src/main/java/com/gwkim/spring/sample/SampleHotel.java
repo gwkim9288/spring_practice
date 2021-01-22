@@ -1,5 +1,11 @@
 package com.gwkim.spring.sample;
 
+import org.springframework.stereotype.Component;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
 @Component
 @ToString
 @Getter
