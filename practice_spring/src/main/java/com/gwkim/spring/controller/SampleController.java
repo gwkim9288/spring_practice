@@ -2,18 +2,21 @@ package com.gwkim.spring.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.logging.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.gwkim.spring.domain.SampleDTO;
 import com.gwkim.spring.domain.SampleDTOList;
@@ -26,7 +29,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class SampleController {
 
-	static public Logger log = Logger.getLogger(SampleController.class.getName());
+	static public Logger log = LoggerFactory.getLogger(SampleController.class.getName());
 	
 	@RequestMapping("")
 	public void basic() {
@@ -132,5 +135,21 @@ public class SampleController {
 		header.add("Content-Type", "application/json;charset=UTF-8");
 		
 		return new ResponseEntity<>(msg,header,HttpStatus.OK);
+	}
+	
+	//파일 업로드 처리
+	@GetMapping("/exUpload")
+	public void exUpload() {
+		log.info("/exUpload...........");
+	}
+	
+	@PostMapping("/exUpload")
+	public void exUploadPost(ArrayList<MultipartFile> files) {
+		
+		files.forEach(file -> {
+			log.info("-------------------------------");
+			log.info("name:" + file.getOriginalFilename());
+			log.info("size:" + file.getSize());
+		});
 	}
 }
