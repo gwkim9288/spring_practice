@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.gwkim.spring.controller"})
+@ComponentScan(basePackages = {"com.gwkim.spring.controller","com.gwkim.spring.exception"})
 public class ServletConfig implements WebMvcConfigurer{
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
