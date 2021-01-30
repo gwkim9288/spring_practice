@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -12,6 +13,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @MapperScan("com.gwkim.posting.mapper")
+@ComponentScan("com.gwkim.posting.service")
 public class RootConfig {
 	
 	@Bean
