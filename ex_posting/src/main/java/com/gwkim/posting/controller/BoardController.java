@@ -51,7 +51,7 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/list";                                                    
 		
 	}
 	
@@ -66,3 +66,5 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 }
+
+
