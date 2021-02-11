@@ -55,6 +55,8 @@ public class BoardController {
 		
 	}
 	
+	
+	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
 		log.info("remove........"+bno);
