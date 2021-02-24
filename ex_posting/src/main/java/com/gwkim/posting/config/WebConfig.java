@@ -1,7 +1,9 @@
 package com.gwkim.posting.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+@Configuration
 public class WebConfig extends
  AbstractAnnotationConfigDispatcherServletInitializer{
 
