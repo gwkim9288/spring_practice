@@ -1,6 +1,9 @@
 package com.gwkim.posting.config;
 
+import javax.servlet.Filter;
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 @Configuration
@@ -23,6 +26,15 @@ public class WebConfig extends
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
 		return new String[] {"/"};
+	}
+	
+	@Override
+	protected Filter[] getServletFilters() {
+		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+		characterEncodingFilter.setEncoding("UTF-8");
+		characterEncodingFilter.setForceEncoding(true);
+		
+		return new Filter[] {characterEncodingFilter};
 	}
 	/**
 	@Override
