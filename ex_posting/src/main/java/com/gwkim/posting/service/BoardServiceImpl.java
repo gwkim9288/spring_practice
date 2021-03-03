@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardServiceImpl implements BoardService {
 
-	//spring4.3 ÀÌ»ó¿¡¼­ ÀÚµ¿Ã³¸®
+	//spring4.3 ï¿½Ì»ó¿¡¼ï¿½ ï¿½Úµï¿½Ã³ï¿½ï¿½
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
