@@ -2,13 +2,13 @@ package com.gwkim.posting.service;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gwkim.posting.domain.BoardVO;
+import com.gwkim.posting.domain.Criteria;
 import com.gwkim.posting.mapper.BoardMapper;
+
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -59,6 +59,11 @@ public class BoardServiceImpl implements BoardService {
 		log.info("remove....."+bno);
 		
 		return mapper.delete(bno) == 1;
+	}
+	
+	@Override
+	public List<BoardVO> getList(Criteria cri){
+		return mapper.getListWithPaging(cri);
 	}
 	
 }
