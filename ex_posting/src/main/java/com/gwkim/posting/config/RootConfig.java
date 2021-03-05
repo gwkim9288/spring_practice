@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -18,19 +19,26 @@ public class RootConfig {
 	
 	@Bean
 	public DataSource dataSource() {
-		HikariConfig hikariConfig = new HikariConfig();
-		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:3030:XE");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/schema?useSSL=false&amp;serverTimezone=UTC");
+		dataSource.setUsername("root");
+		dataSource.setPassword("19m28b37!");
 		
-		hikariConfig.setUsername("gwkim");
-		hikariConfig.setPassword("gwkim");
+//		HikariConfig hikariConfig = new HikariConfig();
+//		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+//		hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:3030:XE");
+//		
+//		hikariConfig.setUsername("gwkim");
+//		hikariConfig.setPassword("gwkim");
 		
-		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
+		
+		//HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		
 		return dataSource;
 	}
 	
-	//SqlSessionFactory ÀÌ¿ëÇØ¼­ SqlSessionÀ» »ç¿ë
+	//SqlSessionFactory ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ SqlSessionï¿½ï¿½ ï¿½ï¿½ï¿½
 	@Bean public SqlSessionFactoryBean sqlSessionFactory() throws Exception{
 		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
 		sqlSessionFactory.setDataSource(dataSource());
