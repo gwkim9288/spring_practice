@@ -106,7 +106,7 @@
     		   self.location="/board/register";
     	   })
     	  
-       }
+       })
        </script>
 
 <%@include file="../includes/footer.jsp"%>

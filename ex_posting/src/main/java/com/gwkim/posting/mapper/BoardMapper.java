@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import com.gwkim.posting.domain.BoardVO;
+import com.gwkim.posting.domain.Criteria;
 
 public interface BoardMapper {
 
@@ -20,5 +21,7 @@ public interface BoardMapper {
 	public int delete(Long bno);
 	
 	public int update(BoardVO board);
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 }
 
