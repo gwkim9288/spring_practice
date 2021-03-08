@@ -20,6 +20,8 @@
 			<div class="panel-body">
 				<!-- 폼에 처음에는 /board/modify 액션이 붙어있다 -->
 				<form role="form" action="/board/modify" method="post">
+					<input type = 'hidden' name = 'pageNum' value = '${cri.pageNum}'/>
+					<input type = 'hidden' name = 'pageNum' value = '${cri.amount }'/>
 					<div class="form-group">
 						<label>BNO</label><input class="form-control" name='bno'
 							readonly="readonly" value='<c:out value = "board.bno"/>'>
