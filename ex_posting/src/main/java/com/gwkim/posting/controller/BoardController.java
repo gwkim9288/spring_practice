@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gwkim.posting.domain.BoardVO;
 import com.gwkim.posting.domain.Criteria;
+import com.gwkim.posting.domain.PageDTO;
 import com.gwkim.posting.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -38,6 +39,7 @@ public class BoardController {
 		log.info("list....................");
 		
 		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker",new PageDTO(cri, 111));//111 =>예시
 	}
 
 	

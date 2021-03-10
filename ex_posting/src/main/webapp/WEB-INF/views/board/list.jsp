@@ -52,6 +52,7 @@
 
 			</div>
 			<!-- /.panel-body -->
+			<h3>{$pageMaker}</h3>
 		</div>
 		<!-- /.panel -->
 	</div>
